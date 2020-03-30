@@ -1,13 +1,19 @@
 # -*- coding:utf-8 -*-
 class Solution:
     def Power(self, base, exponent):
-        # write code here
-        if exponent<=2:
-            return base**exponent
+
+        ex=exponent
+        if exponent<0:
+            ex=-exponent
+        ans=self.ksm(base,ex)
+        if exponent<0:
+            return 1/ans
+        return ans
+    def ksm(self,base,exponent):
         ans=1
-        div,mod=divmod(exponent,2)
-        if mod==1:
-            ans=ans*base
-        temp=self.Power(base,div)
-        return temp*temp*ans
-            
+        while(exponent):
+            if exponent & 1==1:
+                ans=ans*base
+            base=base*base
+            exponent>>=1
+        return ans
