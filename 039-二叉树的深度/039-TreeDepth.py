@@ -1,19 +1,12 @@
-/*
-struct TreeNode {
-	int val;
-	struct TreeNode *left;
-	struct TreeNode *right;
-	TreeNode(int x) :
-			val(x), left(NULL), right(NULL) {
-	}
-};*/
-class Solution {
-public:
-    int TreeDepth(TreeNode* pRoot)
-    {
-        if(pRoot ==nullptr){
-            return 0;
-        }
-        return max(TreeDepth(pRoot->left), TreeDepth(pRoot->right)) + 1; 
-    }
-};
+# -*- coding:utf-8 -*-
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution:
+    def TreeDepth(self, pRoot):
+        # write code here
+        if pRoot is None:
+            return 0
+        return max(self.TreeDepth(pRoot.left),self.TreeDepth(pRoot.right))+1
